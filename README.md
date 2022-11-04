@@ -13,7 +13,7 @@ Project is created with WP 6.1 and Sage 9
       composer install
   ```
 
-## Database access
+## Account access
 
 - Login: marcin.devjs
 - Password: Adchitects_2022
