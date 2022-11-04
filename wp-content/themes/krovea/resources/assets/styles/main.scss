@@ -1,0 +1,13 @@
+@import "tailwindcss/utilities.css";
+
+@import "tailwindcss/base.css";
+@import "tailwindcss/components.css";
+
+@import "common/global";
+@import "common/animations";
+
+@import "components/preloader";
+@import "components/navbutton";
+
+@import "layouts/header";
+@import "layouts/container";

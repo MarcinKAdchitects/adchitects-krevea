@@ -1,0 +1,15 @@
+@keyframes pulse-scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.infinite-anim-pulse-scale-slow {
+  animation: infinite pulse-scale 10s;
+}

@@ -1,0 +1,12 @@
+.loader{
+	@apply transition-all duration-500 ease-in-out opacity-100;
+	img {
+		@apply transition-transform duration-300 ease-in-out;
+	}
+	&.is-hidden{
+		@apply -translate-y-full opacity-0;
+		img{
+			@apply translate-y-[40vH];
+		}
+	}
+}

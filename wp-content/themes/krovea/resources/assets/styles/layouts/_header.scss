@@ -1,0 +1,152 @@
+.page-navigation {
+  @apply z-90 fixed flex flex-col justify-center top-0 left-0 w-full h-16 lg:h-22 bg-white border-b lg:border-0 border-gray-100 transition-all ease-in-out duration-300;
+
+  &.is-scrolled-down {
+    @apply lg:-translate-y-full;
+  }
+
+  &.is-scrolled-up {
+    @apply lg:translate-y-0;
+  }
+
+  &--moved {
+    @apply translate-y-8;
+    &.is-scrolled-up {
+      @apply lg:translate-y-8;
+    }
+  }
+
+  &__menu {
+    @apply z-90 fixed lg:relative lg:flex lg:items-center w-[90%] lg:w-full max-w-144 min-h-screen max-h-screen lg:h-22 top-0 right-0 px-4 pb-8 lg:p-0 bg-white overflow-y-scroll overflow-x-hidden shadow-lg lg:shadow-none transition-transform duration-300 translate-x-[130%] lg:translate-x-0;
+  }
+  &.is-open {
+    .page-navigation__menu {
+      @apply translate-x-0;
+    }
+  }
+}
+
+.menu .menu-item,
+.menu-anim,
+.menu-anim-last {
+  @apply transform duration-300 translate-x-12 lg:translate-x-0 scale-80 lg:scale-100 opacity-0 lg:opacity-100;
+  transition-timing-function: cubic-bezier(0.175, 0.185, 0.12, 1.175);
+  transition-property: transform, opacity;
+
+  &.is-visible {
+    @apply opacity-100 translate-x-0 scale-100;
+  }
+}
+
+.menu {
+  .menu {
+    &-item {
+      @apply flex flex-wrap lg:flex-col justify-between w-full lg:w-auto py-1 lg:py-0 lg:transform-none;
+
+      &.is-open {
+        > .sub-menu {
+          @apply pb-1;
+          max-height: 10000px;
+          > .menu {
+            &-item {
+              @apply opacity-100 translate-x-0 scale-100;
+              > a {
+                @apply opacity-100;
+              }
+            }
+          }
+        }
+      }
+      a {
+        @apply z-10 relative inline-block w-fit-content py-1 text-gray-300 text-base overflow-hidden;
+        &:before {
+          @apply -z-1 absolute bottom-0 left-0 w-full h-[2px] bg-gray-300 opacity-0 -translate-x-full transition-all duration-300 ease-in-out;
+          content: "";
+        }
+        &:hover,
+        &:focus {
+          &:before {
+            @apply translate-x-0 opacity-100;
+          }
+        }
+        &.link-lvl-0 {
+          @apply font-medium text-xl lg:text-base;
+        }
+        &.link-lvl-1 {
+          @apply font-medium text-xl lg:text-xl;
+        }
+        &.link-lvl-2 {
+          @apply text-gray-200 text-base;
+          &:before {
+            @apply bg-primary;
+          }
+        }
+      }
+
+      .sub-menu-arrow {
+        @apply flex lg:hidden items-center justify-center w-8 h-8 bg-primary;
+        svg {
+          @apply text-white;
+        }
+      }
+      .sub-menu {
+        @apply w-full pl-4 lg:pl-0 lg:w-full max-h-0 lg:max-h-inherit overflow-hidden bg-white;
+        > a {
+          @apply py-1 font-medium text-gray-300 text-xl;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .menu {
+    @apply flex items-center justify-between h-full overflow-visible;
+    > .menu-item {
+      @apply justify-center h-full px-6;
+      &:hover,
+      &:focus,
+      &:focus-within {
+        > a {
+          &:before {
+            @apply translate-x-0 opacity-100;
+          }
+        }
+        > .sub-menu {
+          @apply opacity-100 translate-y-0 scale-100;
+          > a {
+            @apply opacity-100;
+            &:before {
+              @apply translate-x-0 opacity-100;
+            }
+          }
+        }
+      }
+      > .sub-menu {
+        @apply mx-auto fixed flex flex-wrap top-22 left-0 right-0 container py-6 overflow-visible transition-all duration-300 ease-in-out opacity-0 -translate-y-[50%] scale-0;
+        &:before {
+          @apply mx-auto absolute top-0 -left-[10vW] w-[110vW] h-full bg-white;
+          content: "";
+        }
+        &:after {
+          @apply mx-auto absolute bottom-0 left-0 right-0 container h-full border-t border-b border-gray-100;
+          content: "";
+        }
+        > .menu-item {
+          @apply w-3/12;
+        }
+      }
+    }
+  }
+  .page-navigation {
+    &__menu {
+      max-width: inherit;
+      min-height: inherit;
+      max-height: inherit;
+      top: inherit;
+      right: inherit;
+      transform: inherit;
+      overflow: inherit;
+    }
+  }
+}

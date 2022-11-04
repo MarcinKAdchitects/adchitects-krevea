@@ -1,0 +1,11 @@
+.container,
+.container-fluid {
+  @apply mx-auto px-4;
+}
+
+.row {
+  @apply -mx-4 flex flex-wrap;
+  .row {
+    @apply mx-0;
+  }
+}
