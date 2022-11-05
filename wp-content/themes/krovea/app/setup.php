@@ -18,9 +18,6 @@ add_action('wp_enqueue_scripts', function () {
     //Remove css
     wp_dequeue_style('classic-theme-styles');
 
-    //Remove js
-    wp_deregister_script( 'jquery-core' );
-
 }, 100);
 
 /**

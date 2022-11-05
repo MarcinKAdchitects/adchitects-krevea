@@ -17,7 +17,7 @@
   }
 
   &__menu {
-    @apply z-90 fixed lg:relative lg:flex lg:items-center w-[90%] lg:w-full max-w-144 min-h-screen max-h-screen lg:h-22 top-0 right-0 px-4 pb-8 lg:p-0 bg-white overflow-y-scroll overflow-x-hidden shadow-lg lg:shadow-none transition-transform duration-300 translate-x-[130%] lg:translate-x-0;
+    @apply z-90 fixed lg:relative lg:flex lg:items-center w-[90%] lg:w-full max-w-80 min-h-screen max-h-screen lg:h-22 top-0 right-0 px-4 pb-8 lg:p-0 bg-white overflow-y-scroll overflow-x-hidden shadow-lg lg:shadow-none transition-transform duration-300 translate-x-[130%] lg:translate-x-0;
   }
   &.is-open {
     .page-navigation__menu {

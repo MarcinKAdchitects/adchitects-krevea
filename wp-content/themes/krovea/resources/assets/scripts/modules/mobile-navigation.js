@@ -47,6 +47,12 @@ export default class MobileNavigation {
       });
     });
 
+    this.pageHeader.addEventListener("click", (event) => {
+      if (event.target.localName === "a") {
+        this.reset();
+      }
+    });
+
     window.addEventListener("scroll", () => {
       this.onScroll();
     });
@@ -60,6 +66,13 @@ export default class MobileNavigation {
     this.btnCloseShipping.addEventListener("click", () => {
       this.hideShippingBanner();
     });
+
+    window.addEventListener("resize", () => {
+      this.reset();
+      this.submenuBtn.forEach((item) => {
+        item.parentNode.classList.remove("is-open");
+      });
+    });
   }
   toggleOpen() {
     this.pageHeader.classList.toggle(this.classWhenOpen);
@@ -67,10 +80,20 @@ export default class MobileNavigation {
     this.animate(this.elToAnim);
 
     if (this.lastElToAnim.length > 0) {
-      this.recalculateDelay(this.elToAnimate);
+      this.recalculateDelay(this.elToAnim);
       this.animate(this.lastElToAnim);
     }
     this.delay = this.delayReset;
+  }
+
+  reset() {
+    this.pageHeader.classList.remove(this.classWhenOpen);
+
+    this.resetAnimate(this.elToAnim);
+
+    if (this.lastElToAnim.length > 0) {
+      this.resetAnimate(this.lastElToAnim);
+    }
   }
 
   onScroll() {
@@ -96,6 +119,12 @@ export default class MobileNavigation {
         item.classList.toggle(this.classAnim);
       }, delay);
       delay += 150;
+    });
+  }
+
+  resetAnimate(el) {
+    el.forEach((item) => {
+      item.classList.remove(this.classAnim);
     });
   }
 

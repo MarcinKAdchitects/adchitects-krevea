@@ -36,23 +36,3 @@
 		</div>
 	</div>
 </header>
-
-{{-- <button class="navbutton xl:hidden js-toggle-menu">
-			<span class="navbutton__item"></span>
-			<span class="navbutton__item"></span>
-			<span class="navbutton__item"></span>
-		</button> --}}
-
-{{-- <button class="navbutton-close js-toggle-menu">
-					<span class="navbutton-close__item"></span>
-					<span class="navbutton-close__item"></span>
-				</button> --}}
-
-
-
-
-{{-- <div class="mt-8 xl:mt-0">
-				@foreach (get_field('btns_menu', 'options') as $btn)
-					
-				@endforeach
-			</div>		 --}}
